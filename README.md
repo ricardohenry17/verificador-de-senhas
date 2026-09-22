@@ -1,58 +1,20 @@
-import re
+# 🛡️ Verificador de Força de Senha em Python
 
-def verificar_forca_senha(senha):
-    tamanho_minimo = 8
-    tem_maiuscula = bool(re.search(r'[A-Z]', senha))
-    tem_minuscula = bool(re.search(r'[a-z]', senha))
-    tem_numero = bool(re.search(r'[0-9]', senha))
-    tem_especial = bool(re.search(r'[!@#$%^&*(),.?":{}|<>]', senha))
-    
-    pontuacao = 0
-    recomendacoes = []
+Um script desenvolvido em **Python** focado em cibersegurança básica, criado para analisar a robustez de senhas de utilizadores com base em critérios essenciais de segurança da informação.
 
-    if len(senha) >= tamanho_minimo:
-        pontuacao += 1
-    else:
-        recomendacoes.append(f"A senha deve ter pelo menos {tamanho_minimo} caracteres.")
+---
 
-    if tem_maiuscula:
-        pontuacao += 1
-    else:
-        recomendacoes.append("Adicione pelo menos uma letra maiúscula.")
+### 🚀 Funcionalidades
+* **Verificação de Comprimento:** Garante o tamanho mínimo recomendado de caracteres.
+* **Complexidade:** Valida a presença obrigatória de letras maiúsculas, minúsculas, números e caracteres especiais.
+* **Feedback Dinâmico:** Apresenta o nível da senha (Fraca, Média ou Forte) acompanhado de dicas práticas de melhoria.
 
-    if tem_minuscula:
-        pontuacao += 1
-    else:
-        recomendacoes.append("Adicione pelo menos uma letra minúscula.")
+---
 
-    if tem_numero:
-        pontuacao += 1
-    else:
-        recomendacoes.append("Adicione pelo menos um número.")
+### 💻 Como Executar o Projeto
 
-    if tem_especial:
-        pontuacao += 1
-    else:
-        recomendacoes.append("Adicione pelo menos um caractere especial (ex: !, @, #, $).")
-
-    print("\n" + "="*40)
-    print(" RESULTADO DA ANÁLISE DE SEGURANÇA")
-    print("="*40)
-
-    if pontuacao == 5:
-        print("🟢 Senha FORTE! Excelente nível de segurança.")
-    elif pontuacao >= 3:
-        print("🟡 Senha MÉDIA. Pode ser melhorada.")
-    else:
-        print("🔴 Senha FRACA. Vulnerável a ataques.")
-
-    if recomendacoes:
-        print("\nRecomendações para melhorar:")
-        for rec in recomendacoes:
-            print(f" - {rec}")
-    print("="*40 + "\n")
-
-if __name__ == "__main__":
-    print("=== Validador de Força de Senha (Cyber Security Tool) ===")
-    user_senha = input("Digite a senha que deseja testar: ")
-    verificar_forca_senha(user_senha)
+1. Certifique-se de ter o [Python](https://www.python.org/) instalado no seu computador.
+2. Clone este repositório ou descarregue o arquivo `main.py`.
+3. Abra o terminal na pasta do arquivo e execute o comando:
+   ```bash
+   python main.py
